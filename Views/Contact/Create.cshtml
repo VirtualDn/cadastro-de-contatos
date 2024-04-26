@@ -1,0 +1,32 @@
+﻿@model ContactModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="">
+    <h1 class="display-4 text-center">Novo Contato</h1>
+
+
+    <form asp-controller="Contact" asp-action="Create" method="post">
+        <div class="mb-3">
+            <label for="Email" class="form-label">E-mail</label>
+            <input required type="email" class="form-control" id="Email" name="Email" asp-for="Email" oninvalid="setCustomValidity('Digite o e-mail')" oninput="this.setCustomValidity('')" />
+            @Html.ValidationMessageFor(x => x.Email)
+        </div>
+        <div class="mb-3">
+            <label for="Name" class="form-label">Nome</label>
+            <input required type="text" class="form-control" id="Name" name="Name" asp-for="Name" oninvalid="setCustomValidity('Digite o nome')" oninput="this.setCustomValidity('')" />
+            @Html.ValidationMessageFor(x => x.Name)
+        </div>
+        <div class="mb-3">
+            <label for="Phone" class="form-label">Celular</label>
+            <input required type="text" class="form-control" id="Phone" name="Phone" asp-for="Phone" oninvalid="setCustomValidity('Digite o celular')" oninput="this.setCustomValidity('')" />
+            @Html.ValidationMessageFor(x => x.Phone)
+        </div>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        <a class="btn btn-secondary" role="button" asp-controller="Contact" asp-action="Index"> Voltar</a>
+    </form>
+</div>
+
